@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+  <html>
+    <head>
+            <title>Admin Panel</title>
+
+            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		 
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	{% load staticfiles %}
+	<link href='{% static "account/css/ionicons.min.css" %}' rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet" href='{% static "account/css/materialize.min.css" %}' media="screen,projection"/>
+	<link rel="stylesheet" href='{% static "account/css/style.css" %}'>
+	<link rel="stylesheet" href='{% static "account/css/materialicons.css" %}'>
+	<link href='{% static "account/css/custom.css"  %}' rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+      
+    </head>
+    <body>
+    <!-- creates the side bar-->
+    <ul id="slide-out" class="side-nav fixed z-depth-4">
+                  
+        <li>
+                <div class="userView">
+                  <div class="background">
+                      {% load staticfiles %}
+                    <img src='{% static "account/img/photo1.png" %}'>
+                  </div>
+                  {% load staticfiles %}
+                  <a href="#!user"><img class="circle" src='{% static "account/img/egerton.gif" %}'></a>
+                  <a href="#!name"><span class="white-text name">Welcome back,</span></a>
+                  <a href="#!email"><span class="white-text email">user!</span></a>
+                </div>
+              </li>
+    <!-- used to search -->
+        <li>
+                <form class="sidebar-form">
+                  <div class="input-group">
+                    <input id="accounts" type="text" name="username" class="form-control" placeholder="Search Here" autocomplete="off" />
+                  </div>
+                </form>
+              </li>
+     <!-- inserts dashbord -->
+     <li><a class="active" href="admin.html"><i class="material-icons pink-item">dashboard</i>Dashboard</a></li>
+     <li><div class="divider"></div></li> 

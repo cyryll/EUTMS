@@ -1,0 +1,32 @@
+{% include "account/Includes/headersnippet.html" %}
+
+{% block content %}
+<li><a href="names.html"><i class="material-icons pink-item">schedule</i>Schedule calender</a></li>
+  <!-- Booking management row -->
+<li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">Booking<i class="material-icons pink-item">book</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="userdetails.html">Make Booking</a></li>
+            <li><a href="recentusers.html">Change Booking</a></li>
+            <li><a href="recentusers.html">view bookings</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  
+
+</ul>
+<main>
+<section class="content">
+  {% include "account/Includes/navbarsnippet.html" %} 
+
+</section>
+
+</main>
+{% endblock %}
+{% include "account/includes/footersnippet.html" %}

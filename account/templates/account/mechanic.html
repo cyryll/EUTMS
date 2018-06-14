@@ -1,0 +1,29 @@
+{% include "account/Includes/headersnippet.html" %}
+
+{% block content %}
+  <!-- mechanic management row -->
+<li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">Mechanic Management<i class="material-icons pink-item">person</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="userdetails.html">Add Mechanic</a></li>
+            <li><a href="recentusers.html">Remove Mechanic</a></li>
+            <li><a href="recentusers.html">Reports</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+</ul>
+<main>
+<section class="content">
+  {% include "account/Includes/navbarsnippet.html" %} 
+
+</section>
+
+</main>
+{% endblock %}
+{% include "account/includes/footersnippet.html" %}

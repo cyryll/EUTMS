@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+ <title>
+ {% block title %}{% endblock %}
+</title> 
+ <meta charset="UTF-8">
+ {% load staticfiles %} 
+	<link rel="stylesheet" type="text/css" href='{% static "account/css/style.css" %}'>
+</head>
+
+<body>
+<div class="container1" >
+<div class="logo-container" >
+{% load staticfiles %}
+<img src="{% static 'account/img/logo.gif' %}" alt="Mountain View" class="logo" >
+</div>
+  <div class="wrapper" >
+    {% block content %}
+    
+    {% endblock %}
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+</div>
+{% load staticfiles %}
+	<script  src='{% static "account/js/custom.js" %}'></script>
+	<script type="text/javascript" src='{% static "account/js/jquery.min.js" %}'></script>
+	
+
+</body>
+</html>

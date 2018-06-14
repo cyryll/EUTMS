@@ -1,0 +1,45 @@
+{% include "account/Includes/headersnippet.html" %}
+
+{% block content %}
+  
+<!-- bookings management row -->
+<li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">Bookings<i class="material-icons pink-item">book</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="userdetails.html">Booking Requests</a></li>
+            <li><a href="recentusers.html">Confirmed bookings</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Inventory management row -->
+<li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">Inventory<i class="material-icons pink-item">local_shipping</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="userdetails.html">Add items</a></li>
+            <li><a href="recentusers.html">Used items</a></li>
+            <li><a href="recentusers.html">Remaining items</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+</ul>
+<main>
+<section class="content">
+  {% include "account/Includes/navbarsnippet.html" %} 
+
+</section>
+
+</main>
+{% endblock %}
+{% include "account/includes/footersnippet.html" %}

@@ -1,0 +1,124 @@
+{% include "account/Includes/headersnippet.html" %} 
+
+{% block content %}
+  <!-- user management row -->
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">User Management<i class="material-icons pink-item">person</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="userdetails.html">User Detail</a></li>
+            <li><a href="recentusers.html">Recent Users</a></li>
+            <li><a href="reports.html">Reports</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+     <!-- vehicle management row -->
+     <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header">vehicle Management<i class="material-icons pink-item">airport_shuttle</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="userdetails.html">Add Vehicle</a></li>
+              <li><a href="recentusers.html">Remove Vehicle</a></li>
+              <li><a href="reports.html">Reports</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li> 
+
+       <!-- driver management row -->
+<li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header">Driver Management<i class="material-icons pink-item">person</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="userdetails.html">Add Driver</a></li>
+              <li><a href="recentusers.html">Remove Driver</a></li>
+              <li><a href="reports.html">Reports</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+
+      </ul>
+
+     <main>
+    
+<section class="content"> 
+  {% include "account/Includes/navbarsnippet.html" %} 
+    
+        <div class="row">
+            <div class="col l3 s6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                  <div class="inner">
+                    <h3>420</h3>
+                    <p>Users</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+        
+            <div class="col l3 s6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>420</h3>
+                  <p>Vehicles</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-airport-shuttle"></i>
+                </div>
+                <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+              </div>                                            
+                
+        <div class="col l3 s6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+              <div class="inner">
+                <h3>420</h3>
+                <p>Drivers</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+            <div class="col l3 s6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>1</h3>
+                  <p>Schedule</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+              </div>
+        
+            </div>         
+        
+          
+        </section>
+
+     </main>
+
+     {% endblock %}
+     {% include "account/includes/footersnippet.html" %}
+   
+    

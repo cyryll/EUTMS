@@ -26,7 +26,7 @@ SECRET_KEY = '=--q8(^0=_jr=^5f$z4i6dx&(yv@ly!5s0c9z4x(b740!^7tpm'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'account.Users'
 
 # Application definition
 

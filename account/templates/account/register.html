@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="login-form" method="POST">
+        <input type="text" placeholder="Staff ID"/>
+        <input type="text" placeholder="email address"/>
+        <input type="text" placeholder="contact"/>
+        <input type="password" placeholder="password"/>
+        <input type="password" placeholder="confirm password"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="login.html">Sign In</a></p>
+</form>    
+{% endblock %}

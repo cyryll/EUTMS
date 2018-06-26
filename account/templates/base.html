@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Login
+</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+</head>
+<body><div class="image">
+    {% load staticfiles %}
+<img src='{% static "account/img/logo.gif" %}' width= 100% ></div>
+<center><h1>Welcome to Egerton University Transport Management System</h1></center>
+<div class="login-page">
+
+  <div class="form">
+    {% block content %}
+      
+    {% endblock %}
+  </div>
+ 
+</div>
+
+
+  <script src= '{% static "account/js/jquery.min.js" %}' ></script>
+  <!-- 
+  <script  src=" {% static 'account/js/index.js' %}"></script>
+  -->
+</body>
+</html>

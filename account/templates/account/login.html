@@ -5,9 +5,7 @@
 <form class="login-form" method="POST"> {% csrf_token %}
 {{form.staffId}}
 {{form.password}}
-  <!-- <input type="text" placeholder="Staff ID" id="staffId"/> -->
- <!-- <input type="password" placeholder="password" id="password"/> -->
-  <button type="submit" >login</button>
+  <button type="submit" value="submit">login</button>
   <p class="message">Not registered? <a href="signup/">Create an account</a></p>
 </form>  
 {% endblock %}

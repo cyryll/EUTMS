@@ -5,8 +5,11 @@ from django.db.models import Q
 User = get_user_model()
 
 class UserCreationForm(forms.ModelForm):
-    password1 = forms.CharField(label = 'Password',widget=forms.PasswordInput)
-    password2= forms.CharField(label='Password Confirmation',widget=forms.PasswordInput)
+    staffId = forms.CharField(label='staffId' ,widget = forms.TextInput(attrs={'placeholder':'Enter Staff ID'}))
+    email = forms.CharField(label='email' ,widget = forms.TextInput(attrs={'placeholder':'Enter Email'}))
+    contact = forms.CharField(label='contact' ,widget = forms.TextInput(attrs={'placeholder':'Enter Contact'}))
+    password1 = forms.CharField(label = 'Password',widget=forms.PasswordInput(attrs={'placeholder':'Password Confirmation'}))
+    password2= forms.CharField(label='Password Confirmation',widget=forms.PasswordInput(attrs={'placeholder':'Enter password'}))
 
     class Meta:
         model = User
@@ -21,6 +24,9 @@ class UserCreationForm(forms.ModelForm):
 
     def save(self,commit=True):
         user= super(UserCreationForm,self).save(commit = False)
+        user.staffId = self.cleaned_data['staffId']
+        user.email = self.cleaned_data['email']
+        user.contact = self.cleaned_data['contact']
         user.set_password(self.cleaned_data['password1'])
 
         if commit:

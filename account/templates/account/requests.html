@@ -1,0 +1,38 @@
+{% extends "account/user.html" %}
+
+{% block body %}
+<div class="container">
+    <h3>Make booking request here</h3>
+<form class="col s4">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="FirstName" type="text" class="validate">
+        <label for="FirstName">Department Requesting</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="LastName" type="text" class="datepicker">
+        <label for="LastName">  Travel Date</label>
+      </div>
+       <div class="input-field col s12">
+        <input type="text" class="datepicker">
+        <label for="Email">Return Date</label>
+      </div>
+     <div class="input-field col s12">
+        <input id="Phone" type="text" class="validate">
+        <label for="Phone">Destination</label>
+      </div>
+    <div class="input-field col s12">
+        <input id="Password" type="password" class="validate">
+        <label for="Password">Traveller Description eg Students</label>
+        </div>
+    <div class="input-field col s12">
+        <input id="Phone" type="text" class="validate">
+        <label for="Phone">Number of Travellers</label>
+        </div>
+    <div class="input-field col s12">
+      <button type="submit" class="waves-effect waves-light btn">Request</button>
+      </div>
+    </div>
+  </form>  
+</div>
+{% endblock  %}

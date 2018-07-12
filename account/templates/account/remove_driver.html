@@ -1,0 +1,29 @@
+{% extends "account/admin.html" %}
+
+{% block body%}
+<div class="container">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+                <th data-field="id">Staff Id</th>
+                <th data-field="name">Name</th>
+                <th data-field="price">Contact</th>
+                <th data-field="price">Email</th>
+                <th data-field="price">Availability</th>
+                <th data-field="price">Action</th>
+            </tr>
+          </thead>
+            <tbody>
+                    <tr>
+                            <td>Harassment</td>
+                            <td>MichaelGScott</td>
+                            <td>0716329950</td>
+                            <td>AngelaMartin@gmail.com</td>
+                            <td>Available</td>
+                            <td><a class="btn waves-effect waves-teal" href="" >Remove</a></td>
+                          </tr>
+          </tbody>
+        </table>
+        </div>  
+
+{% endblock  %}

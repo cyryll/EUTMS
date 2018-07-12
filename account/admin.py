@@ -8,15 +8,15 @@ from .models import Users
 class UserAdmin(BaseUserAdmin):
     add_form = UserCreationForm
 
-    list_display = ('staffId','email','is_admin','is_staff')
-    list_filter = ('is_admin',)
+    list_display = ('StaffId','Role')
+    list_filter = ('Role',)
 
     fieldsets = (
-        (None,{'fields':('staffId','email','password')}),
-        ('Permissions',{'fields':('is_admin','is_staff')})
+        (None,{'fields':('StaffId','Password')}),
+        ('Permissions',{'fields':('Role',)})
     )
-    search_fields = ('staffId','email')
-    ordering = ('staffId','email')
+    search_fields = ('StaffId',)
+    ordering = ('StaffId',)
 
     filter_horizontal = ()
 

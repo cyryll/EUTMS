@@ -8,8 +8,8 @@
         <a class="collapsible-header">Mechanic Management<i class="material-icons pink-item">person</i></a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="userdetails.html">Add Mechanic</a></li>
-            <li><a href="recentusers.html">Remove Mechanic</a></li>
+            <li><a class=" modal-trigger" href="#modal1">Add Mechanic</a></li>
+            <li><a href="recentusers.html">Allocate Mechanic</a></li>
             <li><a href="recentusers.html">Reports</a></li>
           </ul>
         </div>
@@ -17,13 +17,118 @@
     </ul>
   </li>
 
+  <!-- Spareparts management row -->
+<li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header">Spareparts Management<i class="material-icons pink-item">person</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a class=" modal-trigger" href="#modal2">Add Spare Parts</a></li>
+            <li><a href="recentusers.html">Used Spare Parts</a></li>
+            <li><a href="recentusers.html">Remaining Spare Parts</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 </ul>
 <main>
 <section class="content">
   {% include "account/Includes/navbarsnippet.html" %} 
+  <br>
+  <div class="row">
+      <div class="col l3 s6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>20</h3>
+              <p>Mechanics</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+          </div>
 
-</section>
+          <div class="col l3 s6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                  <div class="inner">
+                    <h3>42</h3>
+                    <p>Spare Parts</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-airport-shuttle"></i>
+                  </div>
+                  <a href="#" class="small-box-footer" class="animsition-link">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+        </div>
+        </section>
+{% block body %}
+  
+{% endblock  %}
+  <!-- Add Mechanic Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h3>Add mechanic details here</h3>
+      <form class="col s4">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="FirstName" type="text" class="validate">
+              <label for="FirstName">Staff Id</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="LastName" type="text" class="validate">
+              <label for="LastName"> Name </label>
+            </div>
+             <div class="input-field col s12">
+              <input id="Email" type="email" class="validate">
+              <label for="Email">Email </label>
+            </div>
+           <div class="input-field col s12">
+              <input id="Phone" type="text" class="validate">
+              <label for="Phone">Contact </label>
+            </div>
+        </form>  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="waves-effect waves-light btn">ADD</button>
+      <button class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</button>
+    </div>
+  </div>           
 
+   <!-- Add Mechanic Modal Structure -->
+   <div id="modal2" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h3>Add mechanic details here</h3>
+        <form class="col s4">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="FirstName" type="text" class="validate">
+                <label for="FirstName">Name</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="LastName" type="text" class="validate">
+                <label for="LastName"> Cost </label>
+              </div>
+               <div class="input-field col s12">
+                <input id="Email" type="email" class="validate">
+                <label for="Email">Amount </label>
+              </div>
+             <div class="input-field col s12">
+                <input id="Phone" type="text" class="validate">
+                <label for="Phone">Description </label>
+              </div>
+          </form>  
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="waves-effect waves-light btn">ADD</button>
+        <button class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</button>
+      </div>
+    </div>  
 </main>
 {% endblock %}
 {% include "account/includes/footersnippet.html" %}

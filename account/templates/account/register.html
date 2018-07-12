@@ -2,12 +2,12 @@
 
 {% block content %}
 <form class="reister-form" ,method="POST">{% csrf_token %}
-        {{form.staffId}}
-        {{form.email}}
+        {{form.StaffId}}
+        {{form.Email}}
         {{form.contact}}
         {{form.password1}}
         {{form.password2}}
         <button type="submit" value="submit">create</button>
-        <p class="message">Already registered? <a href="login.html">Sign In</a></p>
+        <p class="message">Already registered? <a href="{% url 'login' %}">Sign In</a></p>
 </form>    
 {% endblock %}

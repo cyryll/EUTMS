@@ -1,75 +1,65 @@
 {% include "account/Includes/headersnippet.html" %} {% block content %}
 <!-- user management row -->
 <li class="no-padding">
-  <ul class="collapsible collapsible-accordion">
-    <li>
-      <a class="collapsible-header">User Management
-        <i class="material-icons pink-item">person</i>
-      </a>
-      <div class="collapsible-body">
-        <ul>
-          <li>
-            <a class=" modal-trigger" href="#modal1">User Detail</a>
-          </li>
-          <li>
-            <a href="reports.html">Reports</a>
-          </li>
-    </li>
+  <a class="collapsible-header">User Management
+    <i class="material-icons pink-item">person</i>
+  </a>
+  <div class="collapsible-body">
+    <ul>
+      <li>
+        <a class=" modal-trigger" href="#modal1">User Detail</a>
+      </li>
+      <li>
+        <a href="reports.html">Reports</a>
+      </li>
     </ul>
-    </div>
-</li>
-</ul>
+  </div>
 </li>
 <!-- vehicle management row -->
 <li class="no-padding">
-  <ul class="collapsible collapsible-accordion">
-    <li>
-      <a class="collapsible-header">vehicle Management
-        <i class="material-icons pink-item">airport_shuttle</i>
-      </a>
-      <div class="collapsible-body">
-        <ul>
-          <li>
-            <a class=" modal-trigger" href="#modal2">Add Vehicle</a>
-          </li>
-          <li>
-            <a class=" modal-trigger" href="#modal3">Remove Vehicle</a>
-          </li>
-          <li>
-            <a href="reports.html">Reports</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+  <li>
+    <a class="collapsible-header">vehicle Management
+      <i class="material-icons pink-item">airport_shuttle</i>
+    </a>
+    <div class="collapsible-body">
+      <ul>
+        <li>
+          <a class=" modal-trigger" href="#modal2">Add Vehicle</a>
+        </li>
+        <li>
+          <a class=" modal-trigger" href="#modal3">Remove Vehicle</a>
+        </li>
+        <li>
+          <a href="reports.html">Reports</a>
+        </li>
+      </ul>
+    </div>
+  </li>
 </li>
 
 <!-- driver management row -->
 <li class="no-padding">
-  <ul class="collapsible collapsible-accordion">
-    <li>
-      <a class="collapsible-header">Driver Management
-        <i class="material-icons pink-item">person</i>
-      </a>
-      <div class="collapsible-body">
-        <ul>
-          <li>
-            <a class=" modal-trigger" href="#modal4">Add Driver</a>
-          </li>
-          <li>
-            <a class=" modal-trigger" href="#modal5">Remove Driver</a>
-          </li>
-          <li>
-            <a href="reports.html">Reports</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+  <li>
+    <a class="collapsible-header">Driver Management
+      <i class="material-icons pink-item">person</i>
+    </a>
+    <div class="collapsible-body">
+      <ul>
+        <li>
+          <a href="{% url 'driverDetails' %}">Add Driver</a>
+        </li>
+        <li>
+          <a class=" modal-trigger" href="#modal5">Remove Driver</a>
+        </li>
+        <li>
+          <a href="reports.html">Reports</a>
+        </li>
+      </ul>
+    </div>
+  </li>
 </li>
-
 </ul>
-
+</ul>
 <main>
 
   <section class="content">
@@ -86,7 +76,7 @@
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="{% url 'userDetails' %}" class="small-box-footer" class="animsition-link">More info
+          <a href="" class="small-box-footer" class="animsition-link">More info
             <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -102,7 +92,7 @@
           <div class="icon">
             <i class="ion ion-airport-shuttle"></i>
           </div>
-          <a href="{% url 'vehicleDetails' %}" class="small-box-footer" class="animsition-link">More info
+          <a class=" modal-trigger" href="#modal3" class="small-box-footer" class="animsition-link">More info
             <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -118,7 +108,7 @@
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="{% url 'driverDetails' %}" class="small-box-footer" class="animsition-link">More info
+          <a class=" modal-trigger" href="#modal5" class=" class="small-box-footer" class="animsition-link">More info
             <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -150,45 +140,21 @@
         <thead>
           <tr>
             <th data-field="id">Staff Id</th>
-            <th data-field="name">Role</th>
-            <th data-field="price">Contact</th>
+            <th data-field="price">Last Login</th>
             <th data-field="price">Email</th>
-            <th data-field="price">Department</th>
             <th data-field="price">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>{% for User in data2 %}
           <tr>
-            <td>Harassment</td>
-            <td>Fleet Assistant</td>
-            <td>0716329950</td>
-            <td>AngelaMartin@gmail.com</td>
-            <td>Computer Science</td>
+            <td>{{ User.StaffId }}</td>
+            <td>{{ User.last_login }}</td>
+            <td>{{ User.Email }}</td>
             <td>
               <a class="btn waves-effect waves-teal" href="">Remove</a>
             </td>
-          </tr>
-          <tr>
-            <td>Harassment</td>
-            <td>Fleet Assistant</td>
-            <td>0716329950</td>
-            <td>AngelaMartin@gmail.com</td>
-            <td>Computer Science</td>
-            <td>
-              <a class="btn waves-effect waves-teal" href="">Remove</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Harassment</td>
-            <td>Fleet Assistant</td>
-            <td>0716329950</td>
-            <td>AngelaMartin@gmail.com</td>
-            <td>Computer Science</td>
-            <td>
-              <a class="btn waves-effect waves-teal" href="">Remove</a>
-            </td>
-          </tr>
-        </tbody>
+
+        </tbody>{% endfor %}
       </table>
     </div>
     <div class="modal-footer">
@@ -199,26 +165,22 @@
   <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h3>Add Vehicle details here</h3>
-      <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
+      <form class="col s4" method="POST" id="add" name="add" action="{% url 'admin' %}">{% csrf_token %}
         <div class="row">
           <div class="input-field col s12">
             {{form.Number_plate}}
-            <!--<input id="FirstName" type="text" class="validate">-->
             <label for="FirstName">Number Plate</label>
           </div>
           <div class="input-field col s12">
-              {{form.Vehicle_type}}
-            <!--<input id="LastName" type="text" class="validate">-->
+            {{form.Vehicle_type}}
             <label for="LastName"> Vehicle Type </label>
           </div>
           <div class="input-field col s12">
             {{form.Engine_capacity}}
-            <!--<input id="Email" type="email" class="validate">-->
             <label for="Email"> Engine Capacity</label>
           </div>
           <div class="input-field col s12">
             {{form.Capacity}}
-           <!-- <input id="Phone" type="text" class="validate">-->
             <label for="Phone">Capacity </label>
           </div>
           <!--<div class="input-field col s12">
@@ -248,17 +210,17 @@
             <th data-field="price">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>{% for Vehicle in data %}
           <tr>
-            <td>KBJ 041 L</td>
-            <td>Double Cabin</td>
-            <td>2500 cc</td>
-            <td>4</td>
-            <td>Available</td>
+            <td>{{ Vehicle.Number_plate }}</td>
+            <td>{{ Vehicle.Vehicle_type }}</td>
+            <td>{{ Vehicle.Engine_capacity }}</td>
+            <td>{{ Vehicle.Capacity }}</td>
+            <td>{{ Vehicle.Availability }}</td>
             <td>
               <a class="btn waves-effect waves-teal" href="">Remove</a>
             </td>
-          </tr>
+          </tr>{% endfor %}
         </tbody>
       </table>
     </div>
@@ -270,25 +232,8 @@
   <div id="modal4" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h3>Add driver details here</h3>
-      <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="FirstName" type="text" class="validate">
-            <label for="FirstName">Staff Id</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="LastName" type="text" class="validate">
-            <label for="LastName"> Name </label>
-          </div>
-          <div class="input-field col s12">
-            <input id="Email" type="email" class="validate">
-            <label for="Email">Email </label>
-          </div>
-          <div class="input-field col s12">
-            <input id="Phone" type="text" class="validate">
-            <label for="Phone">Contact </label>
-          </div>
-        </div>
+      <form class="col s4" method="POST" id="add" name="add" action="{% url 'driverDetails' %}">{% csrf_token %}
+          {{ s_form.as_p}}
       </form>
     </div>
     <div class="modal-footer">
@@ -300,34 +245,36 @@
   <!-- Modal Structure -->
   <div id="modal5" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <table class="responsive-table">
-          <thead>
-            <tr>
-              <th data-field="id">Staff Id</th>
-              <th data-field="name">Name</th>
-              <th data-field="price">Contact</th>
-              <th data-field="price">Email</th>
-              <th data-field="price">Availability</th>
-              <th data-field="price">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Harassment</td>
-              <td>MichaelGScott</td>
-              <td>0716329950</td>
-              <td>AngelaMartin@gmail.com</td>
-              <td>Available</td>
-              <td>
-                <a class="btn waves-effect waves-teal" href="">Remove</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Staff Id</th>
+            <th data-field="name">Name</th>
+            <th data-field="price">Contact</th>
+            <th data-field="price">Email</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Driver in data1 %}
+          <tr>
+            <td>{{ Driver.StaffId }}</td>
+            <td>{{ Driver.Name }}</td>
+            <td>{{ Driver.Contact }}</td>
+              <td>{{ Driver.Email }}</td>
+            <td>{{ Driver.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>
+        </tbody>{% endfor %}
+      </table>
       <div class="modal-footer">
         <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
       </div>
     </div>
+  </div>
+
 
 </main>
 {% endblock %} {% include "account/includes/footersnippet.html" %}

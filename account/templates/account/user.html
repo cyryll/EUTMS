@@ -1,8 +1,8 @@
 {% include "account/Includes/headersnippet.html" %} {% block content %}
-<li>
+<!-- <li>
   <a href="names.html">
     <i class="material-icons pink-item">schedule</i>Schedule calender</a>
-</li>
+</li> -->
 <!-- Booking management row -->
 <li class="no-padding">
   <ul class="collapsible collapsible-accordion">
@@ -27,6 +27,7 @@
   </ul>
 </li>
 </ul>
+</ul>
 <main>
 
   <section class="content">
@@ -38,7 +39,7 @@
         <div class="small-box bg-green">
           <div class="inner">
             <h3>2</h3>
-            <p> Boooking Status</p>
+            <p> Boookings Report</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -59,7 +60,7 @@
           <div class="icon">
             <i class="ion ion-airport-shuttle"></i>
           </div>
-          <a href="#" class="small-box-footer" class="animsition-link">More info
+          <a href="{% url 'requests' %}" class="small-box-footer" class="animsition-link">More info
             <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -70,7 +71,7 @@
         <div class="small-box bg-green">
           <div class="inner">
             <h3>1</h3>
-            <p>Schedule</p>
+            <p>Booking Status</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -87,42 +88,55 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>Make booking request here</h4>
-      <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
-        <div class="row">
-          <div class="input-field col s12">
-            {{ form.DeptRequesting }}
-            <label for="FirstName">Department Requesting</label>
-          </div>
-          <div class="input-field col s12">
-            {{ form.Travel_date }}
-            <label for="LastName"> Travel Date</label>
-          </div>
-          <div class="input-field col s12">
-              {{ form.Return_date }}
-            <label for="Email">Return Date</label>
-          </div>
-          <div class="input-field col s12">
-            {{ form.Destination}}
-            <label for="Phone">Destination</label>
-          </div>
-          <div class="input-field col s12">
-            {{ form.Travellers_desc }}
-            <label for="Password">Traveller Description eg Students</label>
-          </div>
-          <div class="input-field col s12">
-            {{ form.Reason }}
-            <label for="Phone">Reason</label>
-          </div>
-          <div class="input-field col s12">
-            {{ form.Capacity }}
-            <label for="Phone">Number of Travellers</label>
-          </div>
+      <div class="row">
+        <form class="col s12" method="POST" id="add" name="add">{% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.DeptRequesting }}
+              <label>Department Requesting</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                {{ form.Travel_date }}
+                <label for="first_name">Travel Date</label>
+              </div>
 
-        </div>
-      </form>
+              <div class="input-field col s6">
+                {{ form.Return_date }}
+                <label for="last_name">Return Date</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.Destination}}
+              <label for="Phone">Destination</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.Travellers_desc }}
+              <label for="Password">Traveller Description eg Students</label>
+            </div>
+          </div>
+        <div class="row">
+              <div class="input-field col s6">
+                {{ form.Reason}}
+                <label for="first_name">Reason</label>
+              </div>
+
+              <div class="input-field col s6">
+                {{ form.Capacity }}
+                <label for="last_name">Number of Travellers</label>
+              </div>
+            </div>
+        </form>
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="submit" form="add" class="waves-effect waves-light btn">Request</button>
+      <button type="submit" form="add" class="waves-effect waves-light btn">Request
+        <i class="mdi-content-send right"></i>
+      </button>
       <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
     </div>
   </div>

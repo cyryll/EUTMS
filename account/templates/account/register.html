@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form class="reister-form" ,method="POST">{% csrf_token %}
-        {{form.StaffId}}
-        {{form.Email}}
-        {{form.contact}}
-        {{form.password1}}
-        {{form.password2}}
+<form method="POST">{% csrf_token %}
+        {{form.as_p }}
         <button type="submit" value="submit">create</button>
         <p class="message">Already registered? <a href="{% url 'login' %}">Sign In</a></p>
 </form>    

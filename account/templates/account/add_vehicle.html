@@ -1,0 +1,35 @@
+{% extends "account/admin.html" %}
+
+{% block body  %}
+<div class="container">
+    <h3>Add Vehicle details here</h3>
+    <form class="col s4">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="FirstName" type="text" class="validate">
+            <label for="FirstName">Number Plate</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="LastName" type="text" class="validate">
+            <label for="LastName"> Vehicle Type </label>
+          </div>
+           <div class="input-field col s12">
+            <input id="Email" type="email" class="validate">
+            <label for="Email"> Engine Capacity</label>
+          </div>
+         <div class="input-field col s12">
+            <input id="Phone" type="text" class="validate">
+            <label for="Phone">Capacity </label>
+          </div>
+          <div class="input-field col s12">
+                <input id="Phone" type="text" class="validate">
+                <label for="Phone">Availablity </label>
+              </div>
+          <div class="input-field col s12">
+            <button type="submit" class="waves-effect waves-light btn">ADD</button>
+            </div>
+          </div>
+      </form>  
+    </div>  
+  
+{% endblock  %}  

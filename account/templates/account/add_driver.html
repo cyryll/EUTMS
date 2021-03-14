@@ -1,0 +1,15 @@
+{% extends "account/admin.html" %}
+
+{% block body  %}
+<div class="container">
+    <h3>Add driver details here</h3>
+    <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
+      {{ form.as_ul }}
+          <div class="input-field col s12">
+            <button type="submit" class="waves-effect waves-light btn">ADD</button>
+            </div>
+          </div>
+      </form>  
+    </div>  
+  
+{% endblock  %}  

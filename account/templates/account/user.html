@@ -1,32 +1,166 @@
-{% include "account/Includes/headersnippet.html" %}
-
-{% block content %}
-<li><a href="names.html"><i class="material-icons pink-item">schedule</i>Schedule calender</a></li>
-  <!-- Booking management row -->
+{% include "account/Includes/headersnippet.html" %} {% block content %}
+<!-- <li>
+  <a href="names.html">
+    <i class="material-icons pink-item">schedule</i>Schedule calender</a>
+</li> -->
+<!-- Booking management row -->
 <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Booking<i class="material-icons pink-item">book</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="userdetails.html">Make Booking</a></li>
-            <li><a href="recentusers.html">Change Booking</a></li>
-            <li><a href="recentusers.html">view bookings</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
-
-  
-
+  <ul class="collapsible collapsible-accordion">
+    <li>
+      <a class="collapsible-header">Booking
+        <i class="material-icons pink-item">book</i>
+      </a>
+      <div class="collapsible-body">
+        <ul>
+          <li>
+            <a class=" modal-trigger" href="#modal1">Make Booking</a>
+          </li>
+          <li>
+            <a href="recentusers.html">Change Booking</a>
+          </li>
+          <li>
+            <a class=" modal-trigger" href="#modal2">view status</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>
+</ul>
 </ul>
 <main>
-<section class="content">
-  {% include "account/Includes/navbarsnippet.html" %} 
 
-</section>
+  <section class="content">
+    {% include "account/Includes/navbarsnippet.html" %}
+    <br>
+    <div class="row">
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>2</h3>
+            <p> Boookings Report</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="{% url 'booking_status' %}" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
 
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>1</h3>
+            <p>Booking Changes</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-airport-shuttle"></i>
+          </div>
+          <a href="{% url 'requests' %}" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>1</h3>
+            <p>Booking Status</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% block body %} {% endblock %}
+  <!-- Request Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Make booking request here</h4>
+      <div class="row">
+        <form class="col s12" method="POST" id="add" name="add">{% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.DeptRequesting }}
+              <label>Department Requesting</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                {{ form.Travel_date }}
+                <label for="first_name">Travel Date</label>
+              </div>
+
+              <div class="input-field col s6">
+                {{ form.Return_date }}
+                <label for="last_name">Return Date</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.Destination}}
+              <label for="Phone">Destination</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              {{ form.Travellers_desc }}
+              <label for="Password">Traveller Description eg Students</label>
+            </div>
+          </div>
+        <div class="row">
+              <div class="input-field col s6">
+                {{ form.Reason}}
+                <label for="first_name">Reason</label>
+              </div>
+
+              <div class="input-field col s6">
+                {{ form.Capacity }}
+                <label for="last_name">Number of Travellers</label>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" form="add" class="waves-effect waves-light btn">Request
+        <i class="mdi-content-send right"></i>
+      </button>
+      <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+    </div>
+  </div>
+  <!-- Status Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Reques Id</th>
+            <th data-field="name">Traveller Description</th>
+            <th data-field="price">Confirmation status</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</button>
+    </div>
+  </div>
 </main>
-{% endblock %}
-{% include "account/includes/footersnippet.html" %}
+{% endblock %} {% include "account/includes/footersnippet.html" %}

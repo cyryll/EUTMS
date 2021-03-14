@@ -1,45 +1,160 @@
-{% include "account/Includes/headersnippet.html" %}
+{% include "account/Includes/headersnippet.html" %} {% block content %}
 
-{% block content %}
-  
 <!-- bookings management row -->
 <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Bookings<i class="material-icons pink-item">book</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="userdetails.html">Booking Requests</a></li>
-            <li><a href="recentusers.html">Confirmed bookings</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
+  <ul class="collapsible collapsible-accordion">
+    <li>
+      <a class="collapsible-header">Bookings
+        <i class="material-icons pink-item">book</i>
+      </a>
+      <div class="collapsible-body">
+        <ul>
+          <li>
+            <a href="{% url 'fleetview' %}">Booking Requests</a>
+          </li>
+          <li>
+            <a href="recentusers.html">Confirmed bookings</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>
 
-  <!-- Inventory management row -->
-<li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Inventory<i class="material-icons pink-item">local_shipping</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="userdetails.html">Add items</a></li>
-            <li><a href="recentusers.html">Used items</a></li>
-            <li><a href="recentusers.html">Remaining items</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
 
 </ul>
+</ul>
 <main>
-<section class="content">
-  {% include "account/Includes/navbarsnippet.html" %} 
+  <section class="content">
+    {% include "account/Includes/navbarsnippet.html" %}
+    <br>
+    <div class="row">
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>12</h3>
+            <p> Requests</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>420</h3>
+            <p>Available Vehicles</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-airport-shuttle"></i>
+          </div>
+          <a class=" modal-trigger" href="#modal1" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
 
-</section>
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>420</h3>
+            <p>Available Drivers</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a class=" modal-trigger" href="#modal2" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>1</h3>
+            <p>Allocations</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+          <a href="{% url 'driverDetails' %}" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% block body %} {% endblock %}
+<!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Number Plate</th>
+            <th data-field="name">Vehicle Type</th>
+            <th data-field="price">Engine Capacity</th>
+            <th data-field="price">Capacity</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Vehicle in data1 %}
+          <tr>
+            <td>{{ Vehicle.Number_plate }}</td>
+            <td>{{ Vehicle.Vehicle_type }}</td>
+            <td>{{ Vehicle.Engine_capacity }}</td>
+            <td>{{ Vehicle.Capacity }}</td>
+            <td>{{ Vehicle.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+    </div>
+  </div>
+ <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Staff Id</th>
+            <th data-field="name">Name</th>
+            <th data-field="price">Contact</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Driver in data2 %}
+          <tr>
+            <td>{{ Driver.StaffId }}</td>
+            <td>{{ Driver.Name }}</td>
+            <td>{{ Driver.Contact }}</td>
+            <td>{{ Driver.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>
+        </tbody>{% endfor %}
+      </table>
+      <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+      </div>
+    </div>
+  </div>
 
 </main>
-{% endblock %}
-{% include "account/includes/footersnippet.html" %}
+{% endblock %} {% include "account/includes/footersnippet.html" %}

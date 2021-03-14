@@ -1,29 +1,192 @@
-{% include "account/Includes/headersnippet.html" %}
-
-{% block content %}
-  <!-- mechanic management row -->
+{% include "account/Includes/headersnippet.html" %} {% block content %}
+<!-- driver management row -->
 <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Mechanic Management<i class="material-icons pink-item">person</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="userdetails.html">Add Mechanic</a></li>
-            <li><a href="recentusers.html">Remove Mechanic</a></li>
-            <li><a href="recentusers.html">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
-
+    <li>
+      <a class="collapsible-header">Spareparts Management
+        <i class="material-icons pink-item">shopping_cart</i>
+      </a>
+      <div class="collapsible-body">
+        <ul>
+          <li>
+            <a class=" modal-trigger" href="#modal1">Add Spareparts</a>
+          </li>
+          <li>
+            <a class=" modal-trigger" href="#modal2">Available spareparts</a>
+          </li>
+          <li>
+            <a >Used Spareparts</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+</li>
+    <li class="no-padding">
+    <li>
+      <a class="collapsible-header">Mechanic Management
+        <i class="material-icons pink-item">person</i>
+      </a>
+      <div class="collapsible-body">
+        <ul>
+          <li>
+            <a href="{% url 'mechanics'%}">Add Mechanic</a>
+          </li>
+          <li>
+            <a class=" modal-trigger" href="#modal3">Remove Mechanic</a>
+          </li>
+          <li>
+            <a >Report</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+</li>
+</ul>
 </ul>
 <main>
-<section class="content">
-  {% include "account/Includes/navbarsnippet.html" %} 
 
-</section>
+  <section class="content">
+    {% include "account/Includes/navbarsnippet.html" %}
+    <br>
+    <div class="row">
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>420</h3>
+            <p>Mechanics</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a class=" modal-trigger" href="#modal3" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
 
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>420</h3>
+            <p>Spareparts</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-airport-shuttle"></i>
+          </div>
+          <a class=" modal-trigger" href="#modal2" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col l3 s6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>420</h3>
+            <p>Vehicle Status</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="" class="small-box-footer" class="animsition-link">More info
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  {% block body %} {% endblock %}
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h3>Add Spareparts details here</h3>
+      <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12">
+            {{form.Name}}
+            <label for="FirstName">Name</label>
+          </div>
+          <div class="input-field col s12">
+              {{form.Amount}}
+            <label for="LastName"> Amount </label>
+          </div>
+          <div class="input-field col s12">
+            {{form.Cost}}
+            <label for="Email"> Cost</label>
+          </div>
+          <div class="input-field col s12">
+            {{ form.Description }}
+            <label for="Phone">Description </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" form="add" class="waves-effect waves-light btn">ADD</button>
+      <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+    </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <h3>Available Spareparts</h3>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Name</th>
+            <th data-field="name">Amount</th>
+            <th data-field="price">Cost</th>
+            <th data-field="price">Description</th>
+          </tr>
+        </thead>
+        <tbody>{% for Sparepart in data %}
+          <tr>
+            <td>{{ Sparepart.Name }}</td>
+            <td>{{ Sparepart.Amount}}</td>
+            <td>{{ Sparepart.Cost }}</td>
+            <td>{{ Sparepart.Description }}</td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+    </div>
+  </div>
+<!-- Modal Structure -->
+  <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Staff Id</th>
+            <th data-field="name">Name</th>
+            <th data-field="price">Contact</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Mechanic in data1 %}
+          <tr>
+            <td>{{ Mechanic.StaffId }}</td>
+            <td>{{ Mechanic.Name }}</td>
+            <td>{{ Mechanic.Contact }}</td>
+            <td>{{ Mechanic.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>
+        </tbody>{% endfor %}
+      </table>
+      <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+      </div>
+    </div>
+  </div>
 </main>
-{% endblock %}
-{% include "account/includes/footersnippet.html" %}
+</main>
+{% endblock %} {% include "account/includes/footersnippet.html" %}

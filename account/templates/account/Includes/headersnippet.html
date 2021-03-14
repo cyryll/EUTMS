@@ -12,9 +12,9 @@
 	{% load staticfiles %}
 	<link href='{% static "account/css/ionicons.min.css" %}' rel="stylesheet" type="text/css" />
 	<link type="text/css" rel="stylesheet" href='{% static "account/css/materialize.min.css" %}' media="screen,projection"/>
-	<link rel="stylesheet" href='{% static "account/css/style.css" %}'>
 	<link rel="stylesheet" href='{% static "account/css/materialicons.css" %}'>
 	<link href='{% static "account/css/custom.css"  %}' rel="stylesheet" type="text/css" />
+	<link href='{% static "account/css/modal.css"  %}' rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
@@ -33,7 +33,7 @@
                   {% load staticfiles %}
                   <a href="#!user"><img class="circle" src='{% static "account/img/egerton.gif" %}'></a>
                   <a href="#!name"><span class="white-text name">Welcome back,</span></a>
-                  <a href="#!email"><span class="white-text email">user!</span></a>
+                  <a href="#!email"><span class="white-text email">{{ name }}</span></a>
                 </div>
               </li>
     <!-- used to search -->
@@ -47,3 +47,6 @@
      <!-- inserts dashbord -->
      <li><a class="active" href="admin.html"><i class="material-icons pink-item">dashboard</i>Dashboard</a></li>
      <li><div class="divider"></div></li> 
+
+     <li><a class="subheader">Management</a></li>
+     <ul class="collapsible" data-collapsible="accordion">

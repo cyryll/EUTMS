@@ -1,0 +1,104 @@
+{% extends "account/fleetassistant.html" %} {% block body%}
+    <h4>Booking Requests</h4>
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th data-field="id">Department</th>
+      <th data-field="name">Travel Date</th>
+      <th data-field="price">Return Date</th>
+      <th data-field="price">Destination</th>
+      <th data-field="price">Reason</th>
+      <th data-field="price">Travellers</th>
+      <th data-field="price">Action</th>
+    </tr>
+  </thead>
+  <tbody>{% for Request in data %}
+    <tr>
+      <td>{{ Request.DeptRequesting }}</td>
+      <td>{{ Request.Travel_date }}</td>
+      <td>{{ Request.Return_date }}</td>
+      <td>{{ Request.Destination }}</td>
+      <td>{{ Request.Reason }}</td>
+      <td>{{ Request.Capacity }}</td>
+      <td>
+        <a class="btn waves-effect waves-teal  modal-trigger" href="#modal1">Allocate</a>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+<!-- Modal Structure -->
+<div id="modal3" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Number Plate</th>
+            <th data-field="name">Vehicle Type</th>
+            <th data-field="price">Engine Capacity</th>
+            <th data-field="price">Capacity</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Vehicle in data1 %}
+          <tr>
+            <td>{{ Vehicle.Number_plate }}</td>
+            <td>{{ Vehicle.Vehicle_type }}</td>
+            <td>{{ Vehicle.Engine_capacity }}</td>
+            <td>{{ Vehicle.Capacity }}</td>
+            <td>{{ Vehicle.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+    </div>
+  </div>
+ <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Staff Id</th>
+            <th data-field="name">Name</th>
+            <th data-field="price">Contact</th>
+            <th data-field="price">Availability</th>
+            <th data-field="price">Action</th>
+          </tr>
+        </thead>
+        <tbody>{% for Driver in data2 %}
+          <tr>
+            <td>{{ Driver.StaffId }}</td>
+            <td>{{ Driver.Name }}</td>
+            <td>{{ Driver.Contact }}</td>
+            <td>{{ Driver.Availability }}</td>
+            <td>
+              <a class="btn waves-effect waves-teal" href="">Remove</a>
+            </td>
+          </tr>
+        </tbody>{% endfor %}
+      </table>
+      <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

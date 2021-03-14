@@ -1,0 +1,29 @@
+{% extends "account/admin.html" %}
+
+{% block body%}
+<div class="container">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+                <th data-field="id">Number Plate</th>
+                <th data-field="name">Vehicle Type</th>
+                <th data-field="price">Engine Capacity</th>
+                <th data-field="price">Capacity</th>
+                <th data-field="price">Availability</th>
+                <th data-field="price">Action</th>
+            </tr>
+          </thead>
+            <tbody>
+                    <tr>
+                            <td>KBJ 041 L</td>
+                            <td>Double Cabin</td>
+                            <td>2500 cc</td>
+                            <td>4</td>
+                            <td>Available</td>
+                            <td><a class="btn waves-effect waves-teal" href="" >Remove</a></td>
+                          </tr>
+          </tbody>
+        </table>
+        </div>  
+
+{% endblock  %}

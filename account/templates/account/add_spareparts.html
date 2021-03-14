@@ -1,0 +1,38 @@
+{% extends "account/mechanic.html" %}
+
+{% block body  %}
+<div class="container">
+        <h3>Add Spare Parts details here</h3>
+        <form class="col s4" method="POST" id="add" name="add">{% csrf_token %}
+            <div class="row">
+              <div class="input-field col s12">
+                {{ form.Name }}
+                <label for="FirstName">Name</label>
+              </div>
+              </div>
+              <div class="row">
+              <div class="input-field col s12">
+                {{ form.Amount }}
+                <label for="LastName"> Amount </label>
+              </div>
+            </div>
+              <div class="row">
+               <div class="input-field col s12">
+                {{  form.Cost }}
+                <label for="Email">Cost </label>
+              </div>
+            </div>
+              <div class="row">
+             <div class="input-field col s12">
+                {{ form.Description }}
+                <label for="Phone">Description </label>
+              </div>
+            </div>
+              <div class="row">
+              <div class="input-field col s12">
+                <button type="submit" class="waves-effect waves-light btn">ADD</button>
+                </div>
+              </div>
+          </form>  
+        </div> 
+{% endblock  %}  

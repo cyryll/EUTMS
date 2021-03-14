@@ -1,0 +1,11 @@
+{% extends "account/mechanic.html" %}
+
+{% block body  %}
+<div class="container">
+        <h3>Add mechanic details here</h3>
+<form method="POST" id="add" name="add" >{% csrf_token %}
+          {{ form.as_p}}
+    <button type="submit" form="add" class="waves-effect waves-light btn">ADD</button>
+      </form>
+        </div>
+{% endblock  %}  
